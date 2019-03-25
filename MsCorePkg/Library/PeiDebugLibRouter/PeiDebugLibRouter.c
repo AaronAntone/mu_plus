@@ -434,22 +434,3 @@ DebugPrintLevelEnabled (
 {
   return (BOOLEAN) ((ErrorLevel & PcdGet32(PcdFixedDebugPrintErrorLevel)) != 0);
 }
-
-/**
-  Lib Constructor
-  Installs PPI
-**/
-EFI_STATUS
-EFIAPI
-DebugPortInitialize (
-  IN       EFI_PEI_FILE_HANDLE  FileHandle,
-  IN CONST EFI_PEI_SERVICES     **PeiServices
-  )
-{
-  EFI_STATUS                Status;
-
-
-  Status = PeiServicesNotifyPpi (&mDebugPpiNotifyDesc);
- 
-  return EFI_SUCCESS;
-}
